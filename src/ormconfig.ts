@@ -5,7 +5,7 @@ const config: ConnectionOptions = {
     host: process.env.DB_HOST,
     port: 3306,
     username: 'root',
-    password: '',
+    password: '123',
     database: 'docker_db',
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
     synchronize: false,
