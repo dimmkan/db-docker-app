@@ -1,7 +1,8 @@
-import {Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {CrudService} from "./crud.service";
 import {CreateCrudDto} from "./dto/createCrud.dto";
 import {CrudEntity} from "./crud.entity";
+import {DeleteResult} from "typeorm";
 
 @Controller('crud')
 export class CrudController {
@@ -21,5 +22,10 @@ export class CrudController {
     @Put('update/:id')
     async updateCrud(@Body() updateCrudDto: CreateCrudDto, @Param() id: number): Promise<CrudEntity> {
         return await this.crudService.updateCrud(updateCrudDto, id);
+    }
+
+    @Delete('delete/:id')
+    async deleteCrud(@Param() id: number): Promise<DeleteResult> {
+        return await this.crudService.deleteCrud(id);
     }
 }

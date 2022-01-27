@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {CrudEntity} from "./crud.entity";
-import {Repository} from "typeorm";
+import {DeleteResult, Repository} from "typeorm";
 import {InjectRepository} from "@nestjs/typeorm";
 import {CreateCrudDto} from "./dto/createCrud.dto";
 
@@ -24,5 +24,9 @@ export class CrudService {
         const crud = await this.crudRepository.findOne({id});
         Object.assign(crud, updateCrudDto);
         return await this.crudRepository.save(crud);
+    }
+
+    async deleteCrud(id: number): Promise<DeleteResult> {
+        return await this.crudRepository.delete(id);
     }
 }
