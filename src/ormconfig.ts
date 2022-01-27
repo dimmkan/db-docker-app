@@ -9,7 +9,7 @@ const config: ConnectionOptions = {
     password: '123',
     database: 'docker_db',
     entities: [CrudEntity],
-    synchronize: true,
+    synchronize: false,
 };
 
 export default config;
