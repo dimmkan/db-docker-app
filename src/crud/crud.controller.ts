@@ -20,12 +20,12 @@ export class CrudController {
     }
 
     @Put('update/:id')
-    async updateCrud(@Body() updateCrudDto: CreateCrudDto, @Param() id: number): Promise<CrudEntity> {
+    async updateCrud(@Body() updateCrudDto: CreateCrudDto, @Param('id') id: number): Promise<CrudEntity> {
         return await this.crudService.updateCrud(updateCrudDto, id);
     }
 
     @Delete('delete/:id')
-    async deleteCrud(@Param() id: number): Promise<DeleteResult> {
+    async deleteCrud(@Param('id') id: number): Promise<DeleteResult> {
         return await this.crudService.deleteCrud(id);
     }
 }

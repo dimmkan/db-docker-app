@@ -24,6 +24,19 @@ let CrudService = class CrudService {
     async getAll() {
         return await this.crudRepository.find();
     }
+    async createCrud(createCrudDto) {
+        const newCrud = new crud_entity_1.CrudEntity();
+        Object.assign(newCrud, createCrudDto);
+        return await this.crudRepository.save(newCrud);
+    }
+    async updateCrud(updateCrudDto, id) {
+        const crud = await this.crudRepository.findOne({ id });
+        Object.assign(crud, updateCrudDto);
+        return await this.crudRepository.save(crud);
+    }
+    async deleteCrud(id) {
+        return await this.crudRepository.delete(id);
+    }
 };
 CrudService = __decorate([
     (0, common_1.Injectable)(),

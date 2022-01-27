@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=""
+      - MYSQL_DATABASE="docker_db"
+    ports:
+    - 3306:3306
+    volumes:
+    - db-config:/ets/mysql
+    - db-data:/var/lib/mysql
+    - .db/backup/files/:/data_backup/data
+  db.docker.app:
+    image: db-docker-app:latest
+    container_name: db-docker-app
+    depends_on:
+      - mysqldb
+    environment:
+      - DB_HOST = mysqldb
+    restart: always
+    ports:
+      - 3000:3000
+volumes:
+  db-config:
+  db-data:
