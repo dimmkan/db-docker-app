@@ -18,7 +18,7 @@ services:
     depends_on:
       - mysqldb
     environment:
-      - DB_HOST = mysqldb
+      - DB_HOST=mysqldb
     restart: always
     ports:
       - 3000:3000
