@@ -25,5 +25,5 @@ services:
     ports:
       - 3000:3000
 volumes:
-  db-config: /home/sa/mysql/config
-  db-data: /home/sa/mysql/data
+  db-config:
+  db-data:
