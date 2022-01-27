@@ -3,7 +3,7 @@ import {CrudEntity} from "./crud/crud.entity";
 
 const config: ConnectionOptions = {
     type: 'mysql',
-    host: process.env.DB_HOST,
+    host: String(process.env.DB_HOST),
     port: 3306,
     username: 'root',
     password: '123',
