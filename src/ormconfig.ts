@@ -1,4 +1,5 @@
 import { ConnectionOptions } from 'typeorm';
+import {CrudEntity} from "./crud/crud.entity";
 
 const config: ConnectionOptions = {
     type: 'mysql',
@@ -7,12 +8,8 @@ const config: ConnectionOptions = {
     username: 'root',
     password: '123',
     database: 'docker_db',
-    entities: [__dirname + '/**/*.entity{.ts,.js}'],
-    synchronize: false,
-    migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
-    cli: {
-        migrationsDir: 'src/migrations'
-    }
+    entities: [CrudEntity],
+    synchronize: true,
 };
 
 export default config;
